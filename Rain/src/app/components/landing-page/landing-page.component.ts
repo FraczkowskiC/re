@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../services/email.service';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,7 +10,7 @@ import { EmailService } from '../../services/email.service';
 export class LandingPageComponent implements OnInit {
   data: any = [];
 
-  constructor(private emailService: EmailService) { }
+  constructor(private emailService: EmailService, private router: Router) { }
 
   ngOnInit() {
     this.getFaxData();
@@ -20,5 +21,9 @@ export class LandingPageComponent implements OnInit {
       this.data = response
       console.log(this.data)
     })
+  }
+  
+  emailPreview(emailId){
+    this.router.navigate([`pdf-preview/` + emailId]);
   }
 }

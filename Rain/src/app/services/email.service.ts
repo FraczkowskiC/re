@@ -12,7 +12,13 @@ export class EmailService {
 
   public get(): Observable<any>{
     return this.http.get<any>(environment.apiUrl).pipe(
-      catchError(this.handleError('getHeroes', []))
+      catchError(this.handleError('api/emails', []))
+    );
+  }
+
+  public getLocation(): Observable<any>{
+    return this.http.get<any>(environment.apiUrl2).pipe(
+      catchError(this.handleError('api/location', []))
     );
   }
 

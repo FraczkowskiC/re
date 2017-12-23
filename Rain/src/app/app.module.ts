@@ -10,13 +10,15 @@ import { PdfPreviewComponent } from './components/pdf-preview/pdf-preview.compon
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ModalComponent } from './shared/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LandingPageComponent,
-    PdfPreviewComponent
+    PdfPreviewComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    PdfViewerModule
   ],
   providers: [
     EmailService

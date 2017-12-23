@@ -6,7 +6,7 @@ import { PdfPreviewComponent } from './components/pdf-preview/pdf-preview.compon
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'landing-page', component: LandingPageComponent },
-  { path: 'pdf-preview', component: PdfPreviewComponent },  
+  { path: 'pdf-preview/:id', component: PdfPreviewComponent },  
 ];
 
 @NgModule({

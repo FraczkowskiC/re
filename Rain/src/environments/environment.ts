@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'api/emails'
+  apiUrl: 'api/emails',
+  apiUrl2: 'api/location',
 };
