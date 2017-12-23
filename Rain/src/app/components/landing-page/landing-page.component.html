@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="result-big">
+        <h1>4</h1>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <ul class="nav nav-pills nav-stacked" *ngFor="let email of data">
+        <li>
+          <a href="" [innerHtml]="email.name"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
