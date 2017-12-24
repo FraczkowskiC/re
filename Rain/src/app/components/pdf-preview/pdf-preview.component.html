@@ -11,12 +11,16 @@
     <div class="col-lg-6 col-md-6 col-sm-6 right-wrapper">
       <div *ngIf="!isLocation">
         <button class="primary primary-btn" (click)="showLocationList()"> Send to case file</button>
-        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" />
+        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Email" />
         <button type="submit" class="btn btn-primary btn-sm">Search</button>
       </div>
       <div *ngIf="isLocation">
         <button class="primary primary-btn" (click)="hideLocationList()"> Back</button>
         <h1>Select Location to send file</h1>
+        <div class="col-lg-3 col-md-3 col-sm-3 row">
+            <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" [(ngModel)]="term"/>
+            {{data.length}} results
+        </div>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -27,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let location of data" (click)="selectedLocation(location.id)">
+            <tr *ngFor="let location of data | locationFilter: term" (click)="selectedLocation(location.id)">
               <td>
                 <div class="row">
                   {{location.name}}

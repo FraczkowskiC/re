@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmailService } from './services/email.service';
@@ -12,13 +12,17 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ModalComponent } from './shared/modal/modal.component';
+import { LocationFilterPipe } from './shared/location-filter.pipe';
+import { EmailFilterPipe } from './shared/email-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LandingPageComponent,
     PdfPreviewComponent,
-    ModalComponent
+    ModalComponent,
+    LocationFilterPipe,
+    EmailFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { ModalComponent } from './shared/modal/modal.component';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    PdfViewerModule
+    PdfViewerModule,
+    FormsModule
   ],
   providers: [
     EmailService

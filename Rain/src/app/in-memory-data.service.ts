@@ -17,15 +17,15 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const location = [
         { id: 11, email: 'test1@test.com', phone: 11, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 12, email: 'test2@test.com', phone: 12, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 13, email: 'test3@test.com', phone: 13, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 14, email: 'test4@test.com', phone: 14, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 15, email: 'test5@test.com', phone: 15, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 16, email: 'test6@test.com', phone: 16, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 17, email: 'test7@test.com', phone: 17, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 18, email: 'test8@test.com', phone: 18, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 19, email: 'test9@test.com', phone: 19, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
-        { id: 20, email: 'test10@test.com', phone: 20, name: 'John Doe', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" }
+        { id: 12, email: 'test2@test.com', phone: 12, name: 'John Does', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 13, email: 'test3@test.com', phone: 13, name: 'John Doex', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 14, email: 'test4@test.com', phone: 14, name: 'John Doec', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 15, email: 'test5@test.com', phone: 15, name: 'John Doev', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 16, email: 'test6@test.com', phone: 16, name: 'John Doeb', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 17, email: 'test7@test.com', phone: 17, name: 'John Doen', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 18, email: 'test8@test.com', phone: 18, name: 'John Doem', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 19, email: 'test9@test.com', phone: 19, name: 'John Doeo', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" },
+        { id: 20, email: 'test10@test.com', phone: 20, name: 'John Doep', case: "123", date: "11-11-2017", lawyer: "Misty Meanor" }
       ];
     return {emails, location};
   }
