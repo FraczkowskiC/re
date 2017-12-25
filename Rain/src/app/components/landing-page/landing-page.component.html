@@ -1,16 +1,45 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4">
-      <div class="result-big">
-        <h1>4</h1>
-      </div>
+<div class="container" style="padding-top: 30px;">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="../../../assets/Logo.png" alt="rainwater" style="max-width: 261px;">
+        </div>
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-8">
-      <ul class="nav nav-pills nav-stacked" *ngFor="let email of data">
-        <li>
-          <a [innerHtml]="email.name" (click)="emailPreview(email.id)"></a>
-        </li>
-      </ul>
+</div>
+<div class="section padding-60">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="result-big">
+                    <h1>4</h1>
+                    <p>UNSORTED</p>
+                </div>
+                <form method="get" id="searchform" action="" class="search-box" name="q">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" name="q" id="q"
+                               placeholder="SEARCH">
+                        <i class="fa fa-search form-control-feedback"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-8">
+                <ul class="nav nav-pills nav-stacked" *ngFor="let email of data">
+                    <li>
+                        <a (click)="emailPreview(email.id)">
+                            <div class="col-xs-8 nav-email">
+                                {{ email.name }}
+                            </div>
+                            <div class="col-xs-3 nav-date">
+                                <div class="date-day">14 MAR
+                                    <p>2018</p></div>
+
+                            </div>
+                            <div class="col-xs-1 arrow">
+                                <div class="arrow-right"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
