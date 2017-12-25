@@ -1,9 +1,121 @@
+@white: #ffffff;
+.display-flex {
+  display: flex;
+}
 
-  .right-wrapper{
-      background: rgb(76, 170, 247);
-      height:100vh;
+.right-wrapper {
+  background: linear-gradient(to right, #28aae1, #0376bf);
+  display: flex;
+  justify-content: center;
+  .right-inner {
+    align-self: center;
+    h1 {
+      color: @white;
+      font-weight: bold;
+      margin-bottom: 100px;
+    }
+    h3 {
+      font-weight: bold;
+      color: @white;
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #39ccff;
+      color: @white;
+      font-size: 20px;
+      padding: 10px 40px;
+      font-weight: bold;
+      border: 1px solid #39ccff;
+      border-radius: 7px;
+      margin-bottom: 20px;
+      &:focus {
+        outline: none;
+      }
+    }
+    .back-btn {
+      position: absolute;
+      top: 80px;
+      background: transparent;
+      right: 80px;
+      border: none;
+      padding: 0 0 0 15px;
+      &:before {
+        content: '';
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-right: 6px solid #39ccff;
+        position: absolute;
+        margin-top: 8px;
+        left: 0;
+      }
+    }
+    .email-form {
+      display: flex;
+      input {
+        height: 50px;
+        font-size: 20px;
+        padding: 0 25px;
+        width: 300px;
+        border-radius: 7px 0 0 7px;
+        border-right-color: #39ccff;
+        border-top: 3px solid #cccccc;
+      }
+      button {
+        height: 50px;
+        border-radius: 0 7px 7px 0;
+        padding: 10px 25px;
+        &:after {
+          content: '';
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+
+          border-left: 6px solid @white;
+          position: absolute;
+          margin-top: -6px;
+        }
+      }
+    }
   }
-    
-.table{             
-     background: white;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.table {
+  background: @white;
 }
