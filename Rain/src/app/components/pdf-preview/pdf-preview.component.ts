@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EmailService } from '../../services/email.service';
 import { RequestModel } from '../../models/request-model';
 import { ModalComponent } from '../../shared/modal/modal.component';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -18,8 +19,11 @@ export class PdfPreviewComponent implements OnInit {
   locationEmail = "";
   requestData: RequestModel;
   pdfLength: number;
+  closeResult: string;
 
-  constructor(private route: ActivatedRoute, private emailService: EmailService) { }
+  constructor(private route: ActivatedRoute, private emailService: EmailService, private modalService: NgbModal) {
+    this.requestData = new RequestModel;
+   }
   pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
 
   ngOnInit() {
@@ -41,6 +45,7 @@ export class PdfPreviewComponent implements OnInit {
 
   hideLocationList() {
     this.isLocation = false;
+    this.requestData = new RequestModel;
   }
 
   selectedLocation(id) {
@@ -49,6 +54,10 @@ export class PdfPreviewComponent implements OnInit {
     this.requestData.email = selectedData.email;
     this.requestData.name = selectedData.name;
     this.requestData.pdfId = this.emailId;
+  }
+
+  manualLocation(){
+
   }
 
   callBackFn(pdf: any) {
@@ -65,6 +74,27 @@ export class PdfPreviewComponent implements OnInit {
     } else if (type == "backward") {
       this.page = 1;
     }
-    console.log(this.page)
+  }
+
+  open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  send(){
+    this.requestData.pdfId = this.emailId;
+    console.log(this.requestData);
   }
 }
