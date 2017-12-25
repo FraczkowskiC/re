@@ -29,8 +29,8 @@
                                 {{ email.name }}
                             </div>
                             <div class="col-xs-3 nav-date">
-                                <div class="date-day">14 MAR
-                                    <p>2018</p></div>
+                                <div class="date-day">{{email.date | date: 'dd/MMM'}}
+                                    <p>{{email.date | date: 'yyyy'}}</p></div>
 
                             </div>
                             <div class="col-xs-1 arrow">

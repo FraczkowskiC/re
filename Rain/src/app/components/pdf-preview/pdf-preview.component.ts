@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmailService } from '../../services/email.service';
 import { RequestModel } from '../../models/request-model';
+import { ModalComponent } from '../../shared/modal/modal.component';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -10,16 +11,17 @@ import { RequestModel } from '../../models/request-model';
 })
 export class PdfPreviewComponent implements OnInit {
   emailId: string;
-  page: number;
+  page: number = 1;
   showAll = false;
   data = [];
   isLocation = false;
-  locationEmail="";
+  locationEmail = "";
   requestData: RequestModel;
+  pdfLength: number;
 
   constructor(private route: ActivatedRoute, private emailService: EmailService) { }
   pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
-  
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.emailId = params['id'];
@@ -28,25 +30,41 @@ export class PdfPreviewComponent implements OnInit {
     this.getLocationData();
   }
 
-  getLocationData(){
+  getLocationData() {
     this.emailService.getLocation().subscribe(resp => {
       this.data = resp;
     })
   }
-
-  showLocationList(){
+  showLocationList() {
     this.isLocation = true;
   }
 
-  hideLocationList(){
+  hideLocationList() {
     this.isLocation = false;
   }
 
-  selectedLocation(id){
+  selectedLocation(id) {
     this.requestData = new RequestModel;
     var selectedData = this.data.find(x => x.id == id)
     this.requestData.email = selectedData.email;
     this.requestData.name = selectedData.name;
-    this.requestData.pdfId = this.emailId;   
+    this.requestData.pdfId = this.emailId;
+  }
+
+  callBackFn(pdf: any) {
+    this.pdfLength = pdf.numPages;
+  }
+
+  changePage(type) {
+    if (type == "next") {
+      this.page = (this.page < this.pdfLength)? this.page + 1 : this.page;
+    } else if (type == "pervious") {
+      this.page = (this.page > 1)? this.page - 1 : (this.page);
+    } else if (type == "forward") {
+        this.page = this.pdfLength;
+    } else if (type == "backward") {
+      this.page = 1;
+    }
+    console.log(this.page)
   }
 }

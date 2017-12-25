@@ -14,6 +14,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ModalComponent } from './shared/modal/modal.component';
 import { LocationFilterPipe } from './shared/location-filter.pipe';
 import { EmailFilterPipe } from './shared/email-filter.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { EmailFilterPipe } from './shared/email-filter.pipe';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     PdfViewerModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [
     EmailService
