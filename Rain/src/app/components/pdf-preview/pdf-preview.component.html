@@ -1,81 +1,82 @@
 <div class="container-fluid">
-  <div class="row display-flex">
-    <div class="col-lg-6 col-md-6 col-sm-6 left-wrapper">
-      <app-header></app-header>
-      <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;" [original-size]="false" [(page)]="page" [show-all]="showAll" (after-load-complete)="callBackFn($event)"></pdf-viewer>
-      <div class="row pageNavi">
-        <i class="fa fa-step-backward" aria-hidden="true" (click)="changePage('backward')"></i>
-        <i class="fa fa-caret-left" aria-hidden="true" (click)="changePage('pervious')"></i>
-        <i class="fa fa-caret-right" aria-hidden="true" (click)="changePage('next')"></i>
-        <i class="fa fa-step-forward" aria-hidden="true" (click)="changePage('forward')"></i>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 right-wrapper">
-
-
-      <div *ngIf="!isLocation" class="right-inner">
-        <button class="btn back-btn" routerLink="/landing-page">Back</button>
-        <h1>SELECT LOCATION TO SEND FILE</h1>
-        <button class="primary primary-btn" (click)="showLocationList()"> Send to Case File
-        </button>
-        <h3>OR</h3>
-        <form class="email-form">
-          <input type="text" class="form-control input-sm" maxlength="64" placeholder="Type in email@" [(ngModel)]="requestData.email" [ngModelOptions]="{standalone: true}"/>
-          <button type="submit" class="btn btn-primary btn-sm" (click)="send()" [disabled]="!requestData.email"></button>
-        </form>
-      </div>
-      <div *ngIf="isLocation">
-        <button class="primary primary-btn" (click)="hideLocationList()"> Back</button>
-        <h1>SELECT LOCATION TO SEND FILE</h1>
-        <div class="col-lg-3 col-md-3 col-sm-3 row">
-          <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" [(ngModel)]="term" /> {{(data | locationFilter: term)?.length}} results
+    <div class="row display-flex">
+        <div class="col-lg-5 col-md-5 col-sm-5 left-wrapper">
+            <app-header></app-header>
+            <pdf-viewer [src]="pdfSrc" [render-text]="true"
+                        style="display: block; border: 1px solid #cccccc;"
+                        [original-size]="false" [(page)]="page" [show-all]="showAll" (after-load-complete)="callBackFn($event)"></pdf-viewer>
+                        <i class="fa fa-step-backward" aria-hidden="true" (click)="changePage('backward')"></i>
+                        <i class="fa fa-caret-left" aria-hidden="true" (click)="changePage('pervious')"></i>
+                        <i class="fa fa-caret-right" aria-hidden="true" (click)="changePage('next')"></i>
+                        <i class="fa fa-step-forward" aria-hidden="true" (click)="changePage('forward')"></i>
         </div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">CURRENT INFO</th>
-              <th scope="col">CASE #</th>
-              <th scope="col">LAWYER</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let location of data | locationFilter: term" (click)="selectedLocation(location.id)">
-              <td>
-                <div class="row">
-                  {{location.name}}
+        <div class="col-lg-7 col-md-7 col-sm-7 right-wrapper">
+
+
+            <div *ngIf="!isLocation" class="right-inner">
+                <button class="btn back-btn" routerLink="/landing-page">BACK</button>
+                <h1>SELECT LOCATION TO SEND FILE</h1>
+                <button class="primary primary-btn" (click)="showLocationList()"> Send to Case
+                    File
+                </button>
+                <h3>OR</h3>
+                <form class="email-form">
+                    <input type="text" class="form-control input-sm" maxlength="64"
+                           placeholder="Type in email@"/>
+                    <button type="submit" class="btn btn-primary btn-sm"></button>
+                </form>
+            </div>
+            <div *ngIf="isLocation" class="right-inner">
+                <button class="primary primary-btn table-back" (click)="hideLocationList()"> BACK
+                </button>
+                <h1 class="location-h1">SELECT LOCATION TO SEND FILE</h1>
+                <div class="col-xs-12">
+                    <div class="row display-flex">
+                        <div class="form-group has-feedback">
+                            <input id="searchform" type="text" class="form-control input-sm"
+                                   maxlength="64"
+                                   placeholder="SEARCH" [(ngModel)]="term"/>
+                            <i class="fa fa-search form-control-feedback"></i>
+                        </div>
+                        <div class="data-result">
+                            {{(data | locationFilter: term)?.length}} RESULTS
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                  {{location.date}}
+                <div id="table-scroll" class="col-xs-12">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">CLIENT INFO</th>
+                            <th scope="col">CASE #</th>
+                            <th scope="col">LAWYER</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let location of data | locationFilter: term"
+                            (click)="selectedLocation(location.id)">
+                            <td>
+                                <div class="location-name">
+                                    {{location.name}}
+                                </div>
+                                <div class="location-date">
+                                    {{location.date}}
+                                </div>
+                                <div class="location-phone">
+                                    {{location.phone}}
+                                </div>
+                            </td>
+                            <td [innerHtml]="location.case" class="case"></td>
+                            <td [innerHtml]="location.lawyer" class="lawyer"></td>
+                            <td class="last">More info</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="row">
-                  {{location.phone}}
-                </div>
-              </td>
-              <td [innerHtml]="location.case"></td>
-              <td [innerHtml]="location.lawyer"></td>
-              <td>More</td>
-            </tr>
-          </tbody>
-        </table>
-        <button class="primary primary-btn" (click)="send()"> Send
-        </button>
-      </div>
+                <button class="primary primary-btn send-to-btn"> SEND TO
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-  </div>
-</ng-template>
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
