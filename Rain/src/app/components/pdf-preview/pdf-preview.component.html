@@ -22,8 +22,8 @@
                 <h3>OR</h3>
                 <form class="email-form">
                     <input type="text" class="form-control input-sm" maxlength="64"
-                           placeholder="Type in email@"/>
-                    <button type="submit" class="btn btn-primary btn-sm"></button>
+                           placeholder="Type in email@" [(ngModel)]="requestData.email" [ngModelOptions]="{standalone: true}"/>
+                    <button type="submit" class="btn btn-primary btn-sm" (click)="openDialog()" [disabled]="!requestData.email"></button>
                 </form>
             </div>
             <div *ngIf="isLocation" class="right-inner">
@@ -35,7 +35,7 @@
                         <div class="form-group has-feedback">
                             <input id="searchform" type="text" class="form-control input-sm"
                                    maxlength="64"
-                                   placeholder="SEARCH" [(ngModel)]="term"/>
+                                   placeholder="SEARCH" [(ngModel)]="filterExpression"/>
                             <i class="fa fa-search form-control-feedback"></i>
                         </div>
                         <div class="data-result">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div id="table-scroll" class="col-xs-12">
-                    <table class="table table-hover">
+                    <table class="table table-hover" *ngIf="!isSelectedData">
                         <thead>
                         <tr>
                             <th scope="col">CLIENT INFO</th>
@@ -54,7 +54,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngFor="let location of data | locationFilter: term"
+                        <tr *ngFor="let location of data | locationFilter: filterExpression"
                             (click)="selectedLocation(location.id)">
                             <td>
                                 <div class="location-name">
@@ -73,8 +73,40 @@
                         </tr>
                         </tbody>
                     </table>
+
+                    <table class="table table-hover" *ngIf="isSelectedData">
+                            <thead>
+                            <tr>
+                                <th scope="col">CLIENT INFO</th>
+                                <th scope="col">CASE #</th>
+                                <th scope="col">LAWYER</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="location-name">
+                                        {{selectedData.name}}
+                                    </div>
+                                    <div class="location-date">
+                                        {{selectedData.date}}
+                                    </div>
+                                    <div class="location-phone">
+                                        {{selectedData.phone}}
+                                    </div>
+                                </td>
+                                <td [innerHtml]="selectedData.case" class="case"></td>
+                                <td [innerHtml]="selectedData.lawyer" class="lawyer"></td>
+                                <td class="last">More info</td>
+                            </tr>
+                            </tbody>
+                            <div class="row">
+                             DOI: {{selectedData.doi | date: 'dd/MMM/yyyy' }}
+                            </div>
+                        </table>
                 </div>
-                <button class="primary primary-btn send-to-btn"> SEND TO
+                <button class="primary primary-btn send-to-btn" (click)="openDialog()"> SEND TO
                 </button>
             </div>
         </div>

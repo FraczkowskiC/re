@@ -15,6 +15,10 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { LocationFilterPipe } from './shared/location-filter.pipe';
 import { EmailFilterPipe } from './shared/email-filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +38,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ),
     PdfViewerModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatInputModule,
+    MatDialogModule
   ],
+  entryComponents: [ModalComponent],
+  
   providers: [
     EmailService
   ],

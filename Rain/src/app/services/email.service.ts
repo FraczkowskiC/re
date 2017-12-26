@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { RequestModel } from '../models/request-model';
 
 @Injectable()
 export class EmailService {
@@ -20,6 +21,12 @@ export class EmailService {
     return this.http.get<any>(environment.apiUrl2).pipe(
       catchError(this.handleError('api/location', []))
     );
+  }
+
+  public sendEmail(requestData: RequestModel): Observable<any>{
+    return this.http.post<RequestModel>(environment.apiUrl, requestData).pipe(
+      catchError(this.handleError('api/location', []))
+    )
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

@@ -1,16 +1,16 @@
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-  </div>
-</ng-template>
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-<hr>
+
+<div class="modal-top" >
+  <span (click)="onNoClick()">
+      <i class="fa fa-times-circle-o fa-2x" aria-hidden="true" ></i>  
+  </span>
+</div>
+<div class="modal-body">
+  <h1>Rename File To</h1>
+  <div class="form-group has-feedback">
+    <input  type="text" class="form-control input-sm file-name"
+           maxlength="64"
+           placeholder="File Name" [(ngModel)]="data"/>
+</div>
+<button class="btn btn-success" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!data"> SEND
+  </button>
+</div>
