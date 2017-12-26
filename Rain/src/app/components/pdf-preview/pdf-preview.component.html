@@ -2,7 +2,7 @@
     <div class="row display-flex">
         <div class="col-lg-5 col-md-5 col-sm-5 left-wrapper">
             <app-header></app-header>
-            <pdf-viewer [src]="pdfSrc" [render-text]="true"
+            <pdf-viewer [src]="pdfSrc" [render-text]="true" [autoresize]="false"
                         style="display: block; border: 1px solid #cccccc;"
                         [original-size]="false" [(page)]="page" [show-all]="showAll" (after-load-complete)="callBackFn($event)"></pdf-viewer>
                         <i class="fa fa-step-backward" aria-hidden="true" (click)="changePage('backward')"></i>
@@ -11,8 +11,6 @@
                         <i class="fa fa-step-forward" aria-hidden="true" (click)="changePage('forward')"></i>
         </div>
         <div class="col-lg-7 col-md-7 col-sm-7 right-wrapper">
-
-
             <div *ngIf="!isLocation" class="right-inner">
                 <button class="btn back-btn" routerLink="/landing-page">BACK</button>
                 <h1>SELECT LOCATION TO SEND FILE</h1>
@@ -39,7 +37,7 @@
                             <i class="fa fa-search form-control-feedback"></i>
                         </div>
                         <div class="data-result">
-                            {{(data | locationFilter: term)?.length}} RESULTS
+                            {{(data | locationFilter: filterExpression)?.length}} RESULTS
                         </div>
                     </div>
                 </div>

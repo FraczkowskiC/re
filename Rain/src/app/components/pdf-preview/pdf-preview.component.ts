@@ -50,6 +50,7 @@ export class PdfPreviewComponent implements OnInit {
   }
   showLocationList() {
     this.isLocation = true;
+    this.data
   }
 
   hideLocationList() {
@@ -69,10 +70,6 @@ export class PdfPreviewComponent implements OnInit {
       this.requestData.name = this.selectedData.name;
       this.requestData.pdfId = this.emailId;
     }
-  }
-
-  manualLocation(){
-
   }
 
   callBackFn(pdf: any) {

@@ -17,15 +17,15 @@ export class InMemoryDataService implements InMemoryDbService {
 
     const location = [
         { id: 11, email: 'test1@test.com', phone: 113212123, name: 'John Doe', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-03-12 00:00:00.000" },
-        { id: 12, email: 'test2@test.com', phone: 113212123, name: 'John Does', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-02-13 00:00:00.000" },
-        { id: 13, email: 'test3@test.com', phone: 113212123, name: 'Fran Doex', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-02-14 00:00:00.000" },
-        { id: 14, email: 'test4@test.com', phone: 113212123, name: 'Anthony Doec', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-04-15 00:00:00.000" },
-        { id: 15, email: 'test5@test.com', phone: 113212123, name: 'Test Doev', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-02-16 00:00:00.000" },
-        { id: 16, email: 'test6@test.com', phone: 113212123, name: 'Andrew Doeb', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-05-17 00:00:00.000" },
+        { id: 12, email: 'test2@test.com', phone: 113212123, name: 'John Does', case: "123123123123123123", date: "11-11-2017", lawyer: "An Meanor", doi:"2017-02-13 00:00:00.000" },
+        { id: 13, email: 'test3@test.com', phone: 113212123, name: 'Fran Doex', case: "123123123123123123", date: "11-11-2017", lawyer: "Test Meanor", doi:"2017-02-14 00:00:00.000" },
+        { id: 14, email: 'test4@test.com', phone: 113212123, name: 'Anthony Doec', case: "123123123123123123", date: "11-11-2017", lawyer: "SSS Meanor", doi:"2017-04-15 00:00:00.000" },
+        { id: 15, email: 'test5@test.com', phone: 113212123, name: 'Test Doev', case: "123123123123123123", date: "11-11-2017", lawyer: "Vent Meanor", doi:"2017-02-16 00:00:00.000" },
+        { id: 16, email: 'test6@test.com', phone: 113212123, name: 'Andrew Doeb', case: "123123123123123123", date: "11-11-2017", lawyer: "Atr Meanor", doi:"2017-05-17 00:00:00.000" },
         { id: 17, email: 'test7@test.com', phone: 113212123, name: 'Mark Doen', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-06-18 00:00:00.000" },
         { id: 18, email: 'test8@test.com', phone: 113212123, name: 'John Doem', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-07-18 00:00:00.000" },
         { id: 19, email: 'test9@test.com', phone: 113212123, name: 'John Doeo', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-07-14 00:00:00.000" },
-        { id: 20, email: 'test10@test.com', phone: 113212123, name: 'John Doep', case: "123123123123123123", date: "11-11-2017", lawyer: "Misty Meanor", doi:"2017-08-14 00:00:00.000" }
+        { id: 20, email: 'test10@test.com', phone: 113212123, name: 'Endy Doep', case: "123123123123123123", date: "11-11-2017", lawyer: "John Meanor", doi:"2017-08-14 00:00:00.000" }
         
       ];
     return {emails, location};

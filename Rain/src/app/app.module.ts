@@ -7,9 +7,9 @@ import { EmailService } from './services/email.service';
 import { HeaderComponent } from './shared/header/header.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { PdfPreviewComponent } from './components/pdf-preview/pdf-preview.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService } from './in-memory-data.service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ModalComponent } from './shared/modal/modal.component';
 import { LocationFilterPipe } from './shared/location-filter.pipe';
@@ -17,8 +17,9 @@ import { EmailFilterPipe } from './shared/email-filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +43,12 @@ import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
+
   ],
   entryComponents: [ModalComponent],
-  
+
   providers: [
     EmailService
   ],
