@@ -85,3 +85,13 @@ html, body {
     top: -13px;
     left: 192px;
 }
+
+
+/* pdf-viewr, .ng2-pdf-viewer-container, .pdfViewer{
+          max-height: 83vh!important;
+
+  } */
+
+  pdf-viewr, .ng2-pdf-viewer-container{
+    max-height: 83vh!important;
+  }

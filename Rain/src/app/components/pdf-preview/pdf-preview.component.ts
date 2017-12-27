@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmailService } from '../../services/email.service';
 import { RequestModel } from '../../models/request-model';
 import { ModalComponent } from '../../shared/modal/modal.component';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -21,18 +22,21 @@ export class PdfPreviewComponent implements OnInit {
   requestData: RequestModel;
   pdfLength: number;
   closeResult: string;
-  selectedData : RequestModel;
+  selectedData: RequestModel;
   isSelectedData = false;
   filterExpression;
   constructor(
     private route: ActivatedRoute,
-     private emailService: EmailService,
-     public dialog: MatDialog,
-     private router: Router) {
+    private emailService: EmailService,
+    public dialog: MatDialog,
+    private router: Router,
+    private toastr: ToastsManager,
+    private vcr: ViewContainerRef) {
 
+    this.toastr.setRootViewContainerRef(vcr);
     this.requestData = new RequestModel;
     this.selectedData = new RequestModel;
-   }
+  }
   pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
 
   ngOnInit() {
@@ -56,13 +60,13 @@ export class PdfPreviewComponent implements OnInit {
   hideLocationList() {
     this.isLocation = false;
     this.requestData = new RequestModel;
-    this.selectedData = new RequestModel;   
+    this.selectedData = new RequestModel;
     this.isSelectedData = false;
     this.filterExpression = null;
   }
 
   selectedLocation(id) {
-    if(id){
+    if (id) {
       this.isSelectedData = true;
       this.requestData = new RequestModel;
       this.selectedData = this.data.find(x => x.id == id)
@@ -78,11 +82,11 @@ export class PdfPreviewComponent implements OnInit {
 
   changePage(type) {
     if (type == "next") {
-      this.page = (this.page < this.pdfLength)? this.page + 1 : this.page;
+      this.page = (this.page < this.pdfLength) ? this.page + 1 : this.page;
     } else if (type == "pervious") {
-      this.page = (this.page > 1)? this.page - 1 : (this.page);
+      this.page = (this.page > 1) ? this.page - 1 : (this.page);
     } else if (type == "forward") {
-        this.page = this.pdfLength;
+      this.page = this.pdfLength;
     } else if (type == "backward") {
       this.page = 1;
     }
@@ -95,16 +99,17 @@ export class PdfPreviewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result != undefined){
+      if (result != undefined) {
         this.requestData.fileName = result;
         this.send();
       }
     });
   }
 
-  send(){
+  send() {
     this.requestData.pdfId = this.emailId;
     console.log(this.requestData);
+    this.toastr.success('You are awesome!', 'Success!');
     this.router.navigate([`landing-page`]);
     // this.emailService.sendEmail(this.requestData).subscribe(result => {
     // this.requestData = new RequestModel;

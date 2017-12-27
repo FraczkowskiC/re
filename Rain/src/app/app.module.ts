@@ -20,6 +20,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +46,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NoopAnimationsModule,
     MatInputModule,
     MatDialogModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    ToastModule.forRoot()
   ],
   entryComponents: [ModalComponent],
 
