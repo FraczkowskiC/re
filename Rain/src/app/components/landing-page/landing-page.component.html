@@ -1,14 +1,8 @@
-<div class="container" style="padding-top: 30px;">
-    <div class="row">
-        <div class="col-xs-12">
-            <img src="../../../assets/Logo.png" alt="rainwater" style="max-width: 200px;">
-        </div>
-    </div>
-</div>
+<app-header></app-header>
 <div class="section padding-60">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-4 ">
                 <div class="result-big">
                     <h1>{{(data | emailFilter: term)?.length}}</h1>
                     <p>RESULTS</p>
@@ -23,7 +17,7 @@
             <div class="col-xs-8 wrapper" *ngIf="data.length == 0">
                 <mat-spinner></mat-spinner>
             </div>
-            <div class="col-xs-8 overflow-email" *ngIf="data">
+            <div class="col-lg-8 col-md-8 col-sm-8  overflow-email" *ngIf="data">
                 <ul class="nav nav-pills nav-stacked" *ngFor="let email of data | emailFilter: term">
                     <li>
                         <a (click)="emailPreview(email.id)">

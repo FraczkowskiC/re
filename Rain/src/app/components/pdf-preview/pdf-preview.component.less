@@ -7,6 +7,7 @@
   background: linear-gradient(to right, #28aae1, #0376bf);
   display: flex;
   justify-content: center;
+  padding-left: 45px;
   .right-inner {
     align-self: center;
     h1 {
@@ -16,6 +17,7 @@
     }
     h1.location-h1 {
       margin-bottom: 20px;
+      margin-top: 140px;
     }
     h3 {
       font-weight: bold;
@@ -84,32 +86,35 @@
       }
     }
     #table-scroll {
-      height: 500px;
-      overflow-y: auto;
       margin-top: 20px;
       padding: 0 15px 0 0;
+      .tbody-scroll{
+        overflow-y:auto;height:500px;padding-right:20px;
+      }
       table {
+        width: 0;
         //border-collapse: separate;
         //border-spacing: 0 15px;
-        > thead, > tbody {
+        > thead,  tbody {
           > tr {
             display: block;
 
             > td, > th {
-              min-width: 150px;
+              min-width: 175px;
               vertical-align: middle;
-              padding-left: 40px;
+              padding: 10px 0 10px 40px;
               border-top: 0;
               border-bottom: 0;
             }
           }
         }
-        > tbody {
+         tbody {
           > tr {
             background: @white;
             margin-bottom: 15px;
-            &:hover {
-              background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
+            &:active {
+              // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
+              background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
               box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
               color: @white;
               td.last {
@@ -124,6 +129,25 @@
                 }
               }
             }
+            
+            &:hover {
+              // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
+              background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
+              box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
+              color: @white;
+              td.last {
+                color: #58e07d;
+              }
+              td.lawyer, td.case {
+                color: @white;
+              }
+              td {
+                .location-name, .location-date, .location-phone {
+                  color: @white;
+                }
+              }
+            }
+            
             td.last {
               color: #39ccff;
             }
@@ -152,7 +176,7 @@
             > th {
               font-weight: 100;
               color: @white;
-              font-size: 12px;
+              font-size: 14px;
             }
           }
 

@@ -27,6 +27,7 @@ export class PdfPreviewComponent implements OnInit {
   isSelectedData = false;
   filterExpression;
   pdfSrc: string;
+  isActive: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -82,6 +83,7 @@ export class PdfPreviewComponent implements OnInit {
       this.requestData.name = this.selectedData.name;
       this.requestData.pdfId = this.emailId;
     } else {
+      this.isActive = id;
       this.selectedData = this.data.find(x => x.id == id)
       this.requestData.email = this.selectedData.email;
       this.requestData.name = this.selectedData.name;

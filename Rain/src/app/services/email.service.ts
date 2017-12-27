@@ -5,11 +5,11 @@ import { environment } from '../../environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { RequestModel } from '../models/request-model';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 @Injectable()
 export class EmailService {
 
-  constructor(private http: HttpClient, private toastr?: ToastsManager) { }
+  constructor(private http: HttpClient) { }
 
   public get(): Observable<any>{
     return this.http.get<any>(environment.apiUrl).pipe(
@@ -22,6 +22,7 @@ export class EmailService {
       catchError(this.handleError('api/location', []))
     );
   }
+
 
   public sendEmail(requestData: RequestModel): Observable<any>{
     return this.http.post<RequestModel>(environment.apiUrl, requestData).pipe(
