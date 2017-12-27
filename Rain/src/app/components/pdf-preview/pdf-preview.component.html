@@ -2,8 +2,8 @@
     <div class="row display-flex">
         <div class="col-lg-6 col-md-6 col-sm-6 left-wrapper">
             <app-header></app-header>
-            <pdf-viewer [src]="pdfSrc" [render-text]="false" style="display: block; border: 1px solid #cccccc; max-width:550px; margin-left: 10%" [original-size]="false"
-                [(page)]="page" [show-all]="showAll" (after-load-complete)="callBackFn($event)" [zoom]="0.75" [original-size]="true"></pdf-viewer>
+            <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block; border: 1px solid #cccccc; max-width:500px; margin-left: 10%" [original-size]="false"
+                [(page)]="page" [show-all]="showAll" (after-load-complete)="callBackFn($event)" [zoom]="0.95" [original-size]="true"></pdf-viewer>
             <div class="row pdf-navigation-group" style="text-align: center;">
                 <span class="pdf-navigation">
                     <i class="fa fa-step-backward" aria-hidden="true" (click)="changePage('backward')"></i>
