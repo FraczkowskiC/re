@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body {
+/* html, body {
 	font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -84,4 +84,14 @@ html, body {
     position: absolute;
     top: -13px;
     left: 192px;
-}
+} */
+
+
+/* pdf-viewr, .ng2-pdf-viewer-container, .pdfViewer{
+          max-height: 83vh!important;
+
+  } */
+
+  pdf-viewr, .ng2-pdf-viewer-container{
+    max-height: 83vh!important;
+  }
