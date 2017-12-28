@@ -22,6 +22,10 @@
             </div>
         </div>
         <div class="col-lg-7 col-md-7 col-sm-7 right-wrapper">
+            <div class="container" style="display: flex;justify-content: center;"
+            
+            >
+                <div class="row" style="align-self:center;">
             <div *ngIf="!isLocation" class="right-inner">
                 <button class="back-btn" routerLink="/landing-page">BACK</button>
                 <h1>SELECT LOCATION TO SEND FILE</h1>
@@ -109,9 +113,12 @@
                                 <td [innerHtml]="selectedData.lawyer" class="lawyer"></td>
                                 <td class="last">More info</td>
                             </tr>
+                            <tr>
+                                    DOI: {{selectedData.doi | date: 'dd/MMM/yyyy' }}
+                            </tr>
                         </tbody>
                         <div class="row">
-                            DOI: {{selectedData.doi | date: 'dd/MMM/yyyy' }}
+                           
                         </div>
                     </table>
                 </div>
@@ -119,5 +126,7 @@
                 </button>
             </div>
         </div>
+    </div>
+</div>
     </div>
 </div>
