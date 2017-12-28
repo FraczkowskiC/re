@@ -1,4 +1,14 @@
 @white: #ffffff;
+
+.pr-0{
+  padding-right: 0;
+}
+.pl-0{
+  padding-left: 0;
+}
+.left-wrapper{
+  min-height: 100vh;
+}
 .display-flex {
   display: flex;
 }
@@ -7,11 +17,10 @@
   background: linear-gradient(to right, #28aae1, #0376bf);
   display: flex;
   justify-content: center;
-  // padding-left: 45px;
   .right-inner {
     align-self: center;
     margin: 0 auto;
-    max-width: 770px;
+    max-width: 742px;
     h1 {
       color: @white;
       font-weight: bold;
@@ -19,7 +28,7 @@
     }
     h1.location-h1 {
       margin-bottom: 20px;
-      margin-top: 140px;
+      margin-top: 45px;
     }
     h3 {
       font-weight: bold;
@@ -45,12 +54,10 @@
       }
     }
     .back-btn {
-      position: absolute;
-      top: 80px;
+      padding: 0 0 0 15px !important;
+      float: right;
       background: transparent;
-      right: 80px;
       border: none;
-      padding: 0 0 0 15px;
       &:before {
         content: '';
         border-top: 6px solid transparent;
@@ -58,7 +65,7 @@
         border-right: 6px solid #39ccff;
         position: absolute;
         margin-top: 8px;
-        left: 0;
+        right: 55px;
       }
     }
     .email-form {
@@ -91,10 +98,11 @@
       margin-top: 20px;
       padding: 0 15px 0 0;
       .tbody-scroll{
-        overflow-y:auto;height:500px;padding-right:20px;
+        overflow-y:auto;
+        height:320px;
+        padding-right:20px;
       }
       table {
-        width: 0;
         //border-collapse: separate;
         //border-spacing: 0 15px;
         > thead,  tbody {
@@ -135,7 +143,7 @@
             &:hover {
               // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
               background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
-              box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
+              box-shadow: 10px 8px 13px rgba(25, 126, 174, 0.7);
               color: @white;
               td.last {
                 color: #58e07d;
@@ -171,6 +179,40 @@
               }
             }
           }
+          > tr.selected-name{
+            margin-bottom: 0 !important;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
+            box-shadow: 5px 10px 10px rgba(165, 165, 165, 0.5) !important;
+            
+            td.last {
+              color: #58e07d;
+            }
+            td.lawyer, td.case {
+              color: @white;
+            }
+            td {
+              .location-name, .location-date, .location-phone {
+                color: @white;
+              }
+            }
+          }
+          > tr.selected-data{
+            padding: 13px 30px 25px 30px;
+            background: @white;
+            box-shadow: none;
+            > td{
+              color:#137bc0;
+              padding-left: 0;
+              font-weight: bold;
+              span{
+                color: #1f1f1f;
+                padding-right: 20px;
+                font-weight: 500;
+              }
+            }
+          }
 
         }
         > thead {
@@ -186,12 +228,10 @@
       }
     }
     .table-back {
-      position: absolute;
-      top: 80px;
+      padding: 0 0 0 15px !important;
+      float: right;
       background: transparent;
-      right: 80px;
       border: none;
-      padding: 0 0 0 15px;
       &:before {
         content: '';
         border-top: 6px solid transparent;
@@ -199,7 +239,7 @@
         border-right: 6px solid #39ccff;
         position: absolute;
         margin-top: 8px;
-        left: 0;
+        right: 55px;
       }
     }
     .data-result {

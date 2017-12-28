@@ -1,7 +1,7 @@
 
 <div class="modal-top" >
   <span (click)="onNoClick()">
-      <i class="fa fa-times-circle-o fa-2x" aria-hidden="true" ></i>  
+      <i class="fa fa-times-circle-o fa-3x" aria-hidden="true" ></i>  
   </span>
 </div>
 <div class="modal-body">
@@ -11,6 +11,6 @@
            maxlength="64"
            placeholder="File Name" [(ngModel)]="data"/>
 </div>
-<button class="btn btn-success" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!data"> SEND
+<button class="confirm-to-btn btn" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!data"> Send
   </button>
 </div>

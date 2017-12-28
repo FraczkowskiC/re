@@ -53,7 +53,7 @@ export class PdfPreviewComponent implements OnInit {
   async getLocationData() {
     try {
       // this.pdfSrc = `${environment}/pdf/${this.emailId}.pdf`;
-      this.pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
+      // this.pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
       this.emailService.getLocation().subscribe(resp => {
         this.data = resp;
       })
@@ -110,7 +110,7 @@ export class PdfPreviewComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '600px',
-      height: '40vh',
+      height: '365px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

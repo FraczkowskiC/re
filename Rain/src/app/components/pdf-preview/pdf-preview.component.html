@@ -22,12 +22,12 @@
             </div>
         </div>
         <div class="col-lg-7 col-md-7 col-sm-7 right-wrapper">
-            <div class="container" style="display: flex;justify-content: center;"
-            
-            >
+            <div class="container" style="display: flex;justify-content: center;">
                 <div class="row" style="align-self:center;">
             <div *ngIf="!isLocation" class="right-inner">
+                <div class="col-xs-12 pr-0">
                 <button class="back-btn" routerLink="/landing-page">BACK</button>
+            </div>
                 <h1>SELECT LOCATION TO SEND FILE</h1>
                 <button class="primary primary-btn" (click)="showLocationList()"> Send to Case File
                 </button>
@@ -39,9 +39,12 @@
                 </form>
             </div>
             <div *ngIf="isLocation" class="right-inner">
-                <button class="primary primary-btn table-back" (click)="hideLocationList()"> BACK
+                <div class="col-xs-12 pr-0 pl-0">
+                <button class="table-back" (click)="hideLocationList()"> BACK
                 </button>
+            
                 <h1 class="location-h1">SELECT LOCATION TO SEND FILE</h1>
+            </div>
                 <div class="col-xs-12">
                     <div class="row display-flex" *ngIf="!isSelectedData">
                         <div class="form-group has-feedback" >
@@ -97,7 +100,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="selected-name">
                                 <td>
                                     <div class="location-name">
                                         {{selectedData.name}}
@@ -113,8 +116,10 @@
                                 <td [innerHtml]="selectedData.lawyer" class="lawyer"></td>
                                 <td class="last">More info</td>
                             </tr>
-                            <tr>
-                                    DOI: {{selectedData.doi | date: 'dd/MMM/yyyy' }}
+                            <tr class="selected-data">
+                                <td>
+                                    <span>DOI</span> {{selectedData.doi | date: 'dd/MMM/yyyy' }}
+                                </td>
                             </tr>
                         </tbody>
                         <div class="row">
