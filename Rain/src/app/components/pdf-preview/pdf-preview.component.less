@@ -3,6 +3,9 @@
   display: flex;
 }
 
+.left-wrapper{
+  min-height: 100vh;
+}
 .right-wrapper {
   background: linear-gradient(to right, #28aae1, #0376bf);
   display: flex;
@@ -111,27 +114,31 @@
           }
         }
          tbody {
-          > tr {
-            background: @white;
-            margin-bottom: 15px;
-            &:active {
-              // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
-              background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
-              box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
+          tr.active {
+            // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
+            background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
+            box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
+            color: @white;
+            td.last {
+              color: #58e07d;
+            }
+            td.lawyer, td.case {
               color: @white;
-              td.last {
-                color: #58e07d;
-              }
-              td.lawyer, td.case {
+            }
+            td {
+               .location-date, .location-phone {
                 color: @white;
+                font-size: 12px!important;
               }
-              td {
-                .location-name, .location-date, .location-phone {
-                  color: @white;
-                }
+              .location-name{
+                color: @white;                
               }
             }
-            
+          }
+          > tr {
+            cursor: pointer;
+            background: @white;
+            margin-bottom: 15px;            
             &:hover {
               // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
               background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
@@ -144,8 +151,12 @@
                 color: @white;
               }
               td {
-                .location-name, .location-date, .location-phone {
+                .location-date, .location-phone {
                   color: @white;
+                  font-size: 12px!important;
+                }
+                .location-name{
+                  color: @white;                
                 }
               }
             }
@@ -164,6 +175,7 @@
             td {
               .location-date, .location-phone {
                 color: #275884;
+                font-size: 12px!important;
               }
               .location-name {
                 color: #4d4d4d;
@@ -315,4 +327,9 @@ i.fa-search {
   max-height: 20px!important;
   margin-left: 4px;
   margin-right: 4px;
+}
+
+.pdf-indicator {
+  margin-top: 40%;
+  left: 40%;
 }

@@ -29,6 +29,7 @@ export class PdfPreviewComponent implements OnInit {
   pdfSrc: string;
   isActive: any;
 
+
   constructor(
     private route: ActivatedRoute,
     private emailService: EmailService,
@@ -123,8 +124,7 @@ export class PdfPreviewComponent implements OnInit {
 
   send() {
     this.requestData.pdfId = this.emailId;
-    console.log(this.requestData);
-    this.toastr.success('You are awesome!', 'Success!');
+    // this.toastr.success('You are awesome!', 'Success!');
     this.router.navigate([`landing-page`]);
     // this.emailService.sendEmail(this.requestData).subscribe(result => {
     // this.requestData = new RequestModel;

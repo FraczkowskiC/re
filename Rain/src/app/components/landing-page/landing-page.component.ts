@@ -19,10 +19,9 @@ export class LandingPageComponent implements OnInit {
   getFaxData(){
     this.emailService.get().subscribe(response => {
       this.data = response
-      console.log(this.data)
     })
   }
-  
+
   emailPreview(emailId){
     this.router.navigate([`pdf-preview/` + emailId]);
   }

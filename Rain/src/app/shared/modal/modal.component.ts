@@ -9,7 +9,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./modal.component.less']
 })
 export class ModalComponent {
-
+ 
   data: any;
   closeResult: string;
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
