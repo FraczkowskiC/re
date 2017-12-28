@@ -6,6 +6,7 @@ import { ModalComponent } from '../../shared/modal/modal.component';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-pdf-preview',
@@ -25,6 +26,9 @@ export class PdfPreviewComponent implements OnInit {
   selectedData: RequestModel;
   isSelectedData = false;
   filterExpression;
+  pdfSrc: string;
+  isActive: any;
+
   constructor(
     private route: ActivatedRoute,
     private emailService: EmailService,
@@ -37,7 +41,6 @@ export class PdfPreviewComponent implements OnInit {
     this.requestData = new RequestModel;
     this.selectedData = new RequestModel;
   }
-  pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -47,14 +50,20 @@ export class PdfPreviewComponent implements OnInit {
     this.getLocationData();
   }
 
-  getLocationData() {
-    this.emailService.getLocation().subscribe(resp => {
-      this.data = resp;
-    })
+  async getLocationData() {
+    try {
+      // this.pdfSrc = `${environment}/pdf/${this.emailId}.pdf`;
+      this.pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
+      this.emailService.getLocation().subscribe(resp => {
+        this.data = resp;
+      })
+    } catch (error) {
+      this.data = [];
+    }
   }
+
   showLocationList() {
     this.isLocation = true;
-    this.data
   }
 
   hideLocationList() {
@@ -65,10 +74,16 @@ export class PdfPreviewComponent implements OnInit {
     this.filterExpression = null;
   }
 
-  selectedLocation(id) {
-    if (id) {
+  selectedLocation(id, type) {
+    if (id && type == "double") {
       this.isSelectedData = true;
       this.requestData = new RequestModel;
+      this.selectedData = this.data.find(x => x.id == id)
+      this.requestData.email = this.selectedData.email;
+      this.requestData.name = this.selectedData.name;
+      this.requestData.pdfId = this.emailId;
+    } else {
+      this.isActive = id;
       this.selectedData = this.data.find(x => x.id == id)
       this.requestData.email = this.selectedData.email;
       this.requestData.name = this.selectedData.name;

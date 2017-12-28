@@ -67,7 +67,7 @@
                         <div class="tbody-scroll">
                             <tbody>
 
-                                <tr *ngFor="let location of data | locationFilter: filterExpression" (click)="selectedLocation(location.id)">
+                                <tr *ngFor="let location of data | locationFilter: filterExpression" (click)="selectedLocation(location.id)" (dblclick)="selectedLocation(location.id, 'double')">
                                     <td>
                                         <div class="location-name">
                                             {{location.name}}

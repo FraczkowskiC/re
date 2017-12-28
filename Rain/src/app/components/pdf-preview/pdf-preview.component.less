@@ -40,6 +40,9 @@
       &:focus {
         outline: none;
       }
+      &:disabled{
+        cursor: not-allowed;
+      }
     }
     .back-btn {
       position: absolute;
@@ -91,6 +94,7 @@
         overflow-y:auto;height:500px;padding-right:20px;
       }
       table {
+        width: 0;
         //border-collapse: separate;
         //border-spacing: 0 15px;
         > thead,  tbody {
@@ -110,6 +114,24 @@
           > tr {
             background: @white;
             margin-bottom: 15px;
+            &:active {
+              // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
+              background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
+              box-shadow: 4px 8px 10px rgba(23, 125, 175, 0.9);
+              color: @white;
+              td.last {
+                color: #58e07d;
+              }
+              td.lawyer, td.case {
+                color: @white;
+              }
+              td {
+                .location-name, .location-date, .location-phone {
+                  color: @white;
+                }
+              }
+            }
+            
             &:hover {
               // background: linear-gradient(to right, #63d0ff, #0a5bc4) fixed;
               background: linear-gradient(to right, #41c3fb, #157fc7, #0a5bc4);
@@ -127,6 +149,7 @@
                 }
               }
             }
+            
             td.last {
               color: #39ccff;
             }
@@ -292,16 +315,4 @@ i.fa-search {
   max-height: 20px!important;
   margin-left: 4px;
   margin-right: 4px;
-}
-
-.page-form {
-
-}
-
-pdf-viewr{
-  .ng2-pdf-viewer-container{
-    .pdfViewer{
-      max-height: 75vh;
-    }  
-  }
 }
