@@ -1,7 +1,12 @@
 
 <div class="modal-top" >
+<<<<<<< HEAD
   <span >
+      <i (click)="onNoClick()"class="fa fa-times-circle-o fa-2x" aria-hidden="true" ></i>  
+=======
+  <span (click)="onNoClick()">
       <i class="fa fa-times-circle-o fa-3x" aria-hidden="true" ></i>  
+>>>>>>> 049571b8bb175cabae634a8611d9c19b31123388
   </span>
 </div>
 <div class="modal-body">

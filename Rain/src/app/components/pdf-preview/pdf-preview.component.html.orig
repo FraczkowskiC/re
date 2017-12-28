@@ -103,7 +103,11 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
+                            <tr class="">
+=======
                             <tr class="selected-name">
+>>>>>>> 049571b8bb175cabae634a8611d9c19b31123388
                                 <td>
                                     <div class="location-name">
                                         {{selectedData.name}}

@@ -111,7 +111,7 @@ export class PdfPreviewComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(ModalComponent, {
       width: '600px',
-      height: '40vh',
+      height: '365px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
